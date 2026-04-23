@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hindi Language Program - Bharatiya Bhasha Parivaar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .anim { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .anim.visible { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; } .d5 { transition-delay: 0.5s; } .d6 { transition-delay: 0.6s; }
+    .d7 { transition-delay: 0.7s; }
+    @keyframes heroIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .hero-in { animation: heroIn 0.6s ease forwards; }
+    .hero-in-2 { animation: heroIn 0.6s 0.1s ease both; }
+    @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+    #level-modal.open .modal-box { animation: modalIn 0.2s ease forwards; }
+  </style>
+</head>
+<body class="bg-amber-50 text-slate-900 font-sans">
+
+<!-- NAVBAR -->
+<nav class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-20">
+      <div class="flex items-center">
+        <a href="../index.html" class="flex items-center gap-2">
+          <div class="bg-orange-600 p-2 rounded-lg">
+            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div>
+            <span class="font-bold text-xl text-slate-900 block leading-tight">Bharatiya Bhasha Parivaar</span>
+            <span class="text-xs text-orange-600 font-medium tracking-wider uppercase">Language School</span>
+          </div>
+        </a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="../index.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Home</a>
+        <a href="../about.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">About Us</a>
+        <a href="../programs.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Programs</a>
+        <div class="relative group">
+          <span class="cursor-pointer text-slate-600 hover:text-orange-600 font-medium transition-colors">Registration ▾</span>
+          <div class="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-40">
+            <a href="index.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">All Registration Links</a>
+            <a href="hindi-bhasha-program.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Hindi Bhasha Program</a>
+            <a href="hindi-language-program.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Hindi Language Program</a>
+            <a href="bbp-marathi.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">BBP Marathi</a>
+            <a href="bbp-gujarati.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">BBP Gujrati</a>
+          </div>
+        </div>
+        <a href="../contact.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Contact</a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-slate-600 hover:text-orange-600 focus:outline-none">
+          <svg id="menu-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <svg id="x-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 hidden">
+    <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
+      <a href="../index.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Home</a>
+      <a href="../about.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">About Us</a>
+      <a href="../programs.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Programs</a>
+      <a href="../contact.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Contact</a>
+      <a href="index.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Registration</a>
+      <div class="space-y-1 pl-4">
+        <a href="hindi-bhasha-program.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Hindi Bhasha Program</a>
+        <a href="hindi-language-program.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Hindi Language Program</a>
+        <a href="bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">BBP Marathi</a>
+        <a href="bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">BBP Gujrati</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="w-full">
+
+  <!-- Header -->
+  <div class="text-white py-16" style="background: linear-gradient(to right, #581c87, #ea580c);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-in">Hindi Language Program</h1>
+      <p class="text-xl text-orange-100 hero-in-2">8 Levels of Progressive Hindi Learning</p>
+    </div>
+  </div>
+
+  <!-- HLP Levels Grid -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Register Now button -->
+      <div class="flex justify-center mb-12">
+        <button onclick="document.getElementById('registration-section').scrollIntoView({behavior:'smooth'})"
+          class="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition-colors shadow-md hover:shadow-lg">
+          Register Now
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <div class="anim relative group cursor-pointer" onclick="openModal(0)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level1.jpg" alt="HLP Level I" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d1 relative group cursor-pointer" onclick="openModal(1)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level2.jpg" alt="HLP Level II" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d2 relative group cursor-pointer" onclick="openModal(2)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level3.jpg" alt="HLP Level III" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d3 relative group cursor-pointer" onclick="openModal(3)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level4.jpg" alt="HLP Level IV" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d1 relative group cursor-pointer" onclick="openModal(4)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level5.jpg" alt="HLP Level V" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d2 relative group cursor-pointer" onclick="openModal(5)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level6.jpg" alt="HLP Level VI" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d3 relative group cursor-pointer" onclick="openModal(6)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level7.jpg" alt="HLP Level VII" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d4 relative group cursor-pointer" onclick="openModal(7)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HLP_images/HLP_level8.jpg" alt="HLP Level VIII" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form Section -->
+  <section id="registration-section" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Register for Hindi Language Program</h2>
+        <p class="text-lg text-slate-600">Complete the form below to enroll in our program</p>
+      </div>
+      <div class="w-full rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+        <iframe title="Hindi Language Program Registration Form" src="https://form.jotform.com/212636166881158" width="100%" height="1200" frameborder="0" class="block" style="min-height:1200px"></iframe>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- LEVEL DETAIL MODAL -->
+<div id="level-modal" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4 z-50 hidden" onclick="closeModalOnBackdrop(event)">
+  <div class="modal-box bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <!-- Modal Header -->
+    <div class="sticky top-0 bg-white border-b border-slate-200 p-6 flex justify-between items-center">
+      <div>
+        <h2 id="modal-title" class="text-3xl font-bold text-slate-900"></h2>
+        <p id="modal-subtitle" class="text-lg text-slate-600 mt-2"></p>
+      </div>
+      <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 transition-colors">
+        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <!-- Modal Content -->
+    <div class="p-8 space-y-8">
+      <div class="flex justify-center">
+        <div class="w-40 h-40 rounded-xl overflow-hidden shadow-sm">
+          <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-orange-500">ABOUT COURSE</h3>
+        <p id="modal-about" class="text-slate-700 leading-relaxed text-justify"></p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 mb-3">REQUIREMENTS</h3>
+        <p id="modal-requirements" class="text-slate-700"></p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 mb-4">CLASS SCHEDULE FOR 2026-2027</h3>
+        <div id="modal-schedule" class="space-y-2"></div>
+      </div>
+      <div class="flex justify-center pt-4">
+        <button onclick="closeModal()" class="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-colors">
+          ✕ Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <div class="col-span-1 md:col-span-1">
+        <a href="../index.html" class="flex items-center gap-2 mb-6">
+          <div class="bg-orange-600 p-2 rounded-lg"><svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div><span class="font-bold text-xl text-white block leading-tight">Bharatiya Bhasha Parivaar</span><span class="text-xs text-orange-400 font-medium tracking-wider uppercase">Language School</span></div>
+        </a>
+        <p class="text-slate-400 text-sm leading-relaxed mb-6">Empowering the next generation with the rich heritage of Indian languages and culture in California.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
+        <ul class="space-y-3">
+          <li><a href="../index.html" class="hover:text-orange-400 transition-colors text-sm">Home</a></li>
+          <li><a href="../about.html" class="hover:text-orange-400 transition-colors text-sm">About Us</a></li>
+          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Programs</a></li>
+          <li><a href="../contact.html" class="hover:text-orange-400 transition-colors text-sm">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Programs</h3>
+        <ul class="space-y-3">
+          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Hindi Bhasha</a></li>
+          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Hindi Language Program</a></li>
+          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">BBP Marathi</a></li>
+          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">BBP Gujrati</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="text-sm">California, USA</span></li>
+          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.88 2 2 0 0 1 3.59 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+18582295820" class="text-sm hover:text-orange-400 transition-colors">+1 (858)-229-5820</a></li>
+          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:support@bharatiyabhasha.org" class="text-sm hover:text-orange-400 transition-colors">support@bharatiyabhasha.org</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-sm text-slate-500">&copy; <span id="footer-year"></span> Bharatiya Bhasha Language School. All rights reserved.</p>
+      <div class="flex gap-4 text-sm text-slate-500">
+        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HLP Level data
+const hlpLevels = [
+  {
+    number: 1,
+    title: 'HLP Level I',
+    subtitle: 'INTRODUCTION TO HINDI LANGUAGE',
+    image: '../images/HLP_images/HLP_level1.jpg',
+    aboutCourse: 'HLP I students will be able to read, write and identify Hindi alphabets, numbers, introduce themselves and their family, greet others and carry on basic conversation in Hindi. Students will be able to identify basic things around themselves in everyday life. Throughout the course there is an emphasis on learning Bhartiya (Indian) culture and accepting other cultures. This will provide broader perspective and idea to our students. Students will initiate and sustain simple conversation about self, family, greetings, and birthdays. Students will interpret a video related to the basic personal information about family and descriptions. Students will present information about family using simple Hindi words. Students will understand aural sounds for Hindi related to self, family, greetings, and birthdays. Students will be able to copy (modeled) written form of Hindi for their name and greetings. Culture and Comparison: Students will recognize and practice culturally appropriate social behaviors and gestures for greetings and taking leave in Indian-American society.',
+    requirements: 'Basic Hindi language understanding and speaking',
+    schedule: [{ day: 'Thursday', time: '6PM to 8:30PM' }, { day: 'Friday', time: '6PM to 8:30PM' }]
+  },
+  {
+    number: 2,
+    title: 'HLP Level II',
+    subtitle: 'Language & culture of Hindi speaking parts of the world',
+    image: '../images/HLP_images/HLP_level2.jpg',
+    aboutCourse: 'HLP II students will be studying the language and culture of India and Hindi speaking parts of the world. The overall goal is to develop functional communicative abilities in students to express basic communication needs in culturally appropriate ways. The skills of speaking, listening, reading and writing will be attained by students through exposure to rich authentic linguistic and cultural teaching contexts that emphasize students\' developing competency in Hindi language and culture. The course objectives include developing communication skills and understanding various aspects of culture through exposure to cultural activities that provide each student an opportunity to enhance language learning in appropriate cultural contexts include brief overview of ancient scriptures in modern Bharat. These activities include Hindi media, discussion of important Indian and American events, and field trips to live Hindi plays, Hindi movies, and other local traditional ethnic cultural activities that will familiarize students with perspectives, practices and products of Hindi speaking regions of the world.',
+    requirements: 'Basic Hindi language understanding and speaking',
+    schedule: [{ day: 'Thursday', time: '7:00PM to 9:00PM' }, { day: 'Friday', time: '6:00PM to 9:30PM' }]
+  },
+  {
+    number: 3,
+    title: 'HLP Level III',
+    subtitle: 'INTERMEDIATE HINDI LANGUAGE',
+    image: '../images/HLP_images/HLP_level3.jpg',
+    aboutCourse: 'HLP III takes students closer to the language and culture of India, and Hindi speaking parts of the World. The overall goal is to develop functional communicative abilities in students to express basic communication needs with confidence. The skills of speaking, listening, reading and writing in Hindi will be attained by students being exposed to rich authentic linguistic and cultural teaching contexts that emphasize students developing competency in Hindi language and culture. Students will develop an appreciation for the culture of India. The course objectives include improving communication skills and understanding of cultural aspects. Cultural activities are arranged to provide each student with opportunities to enhance language and cultural learning. These activities include Hindi movies, discussion on important Indian and American events, and field trips to local traditional Indian music programs and/or festivities, and reading and listening to news in Hindi. To share his/her daily routine using appropriate verbs and time, or figure out a day and time for two friends to plan for a movie outing based on their activities and schedule. To demonstrate understanding of shopping for general merchandise, and clothes with proper size and color.',
+    requirements: 'Completion of HLP II or intermediate Hindi knowledge',
+    schedule: [{ day: 'Monday', time: '6PM to 8:30PM' }, { day: 'Thursday', time: '6PM to 8:30PM' }]
+  },
+  {
+    number: 4,
+    title: 'HLP Level IV',
+    subtitle: 'ADVANCED INTERMEDIATE HINDI',
+    image: '../images/HLP_images/HLP_level4.jpg',
+    aboutCourse: 'Students refine intermediate skills with advanced grammar, idiomatic expressions, and cultural nuances. Focus on literary appreciation, business Hindi, and sophisticated conversation. Students complete research projects and cultural presentations.',
+    requirements: 'Completion of HLP III or advanced intermediate Hindi knowledge',
+    schedule: [{ day: 'Tuesday', time: '6PM to 8:30PM' }, { day: 'Thursday', time: '6PM to 8:30PM' }]
+  },
+  {
+    number: 5,
+    title: 'HLP Level V',
+    subtitle: 'UPPER INTERMEDIATE HINDI',
+    image: '../images/HLP_images/HLP_level5.jpg',
+    aboutCourse: 'Intensive focus on advanced communication, literary analysis, and cultural exploration. Students engage with contemporary Hindi media, classical literature, and complex dialogues. Emphasis on developing nuanced expression and cultural competence.',
+    requirements: 'Completion of HLP IV or upper intermediate Hindi knowledge',
+    schedule: [{ day: 'Wednesday', time: '6PM to 8:30PM' }, { day: 'Saturday', time: '2PM to 4:30PM' }]
+  },
+  {
+    number: 6,
+    title: 'HLP Level VI',
+    subtitle: 'PRE-ADVANCED HINDI PROFICIENCY',
+    image: '../images/HLP_images/HLP_level6.jpg',
+    aboutCourse: 'Students transition toward advanced proficiency with emphasis on academic Hindi, literary works, and sophisticated cultural understanding. Discussion-based learning, research presentations, and detailed writing assignments form the core curriculum.',
+    requirements: 'Completion of HLP V or pre-advanced Hindi knowledge',
+    schedule: [{ day: 'Sunday', time: '2PM to 4:30PM' }, { day: 'Monday', time: '6PM to 8:30PM' }]
+  },
+  {
+    number: 7,
+    title: 'HLP Level VII',
+    subtitle: 'ADVANCED HINDI PROFICIENCY',
+    image: '../images/HLP_images/HLP_level7.jpg',
+    aboutCourse: 'Mastery-level instruction with focus on academic discourse, critical analysis of literature, and nuanced cultural interpretation. Students develop teaching competency and advanced writing skills. Classical and contemporary Hindi literature form the curriculum foundation.',
+    requirements: 'Completion of HLP VI or advanced Hindi knowledge',
+    schedule: [{ day: 'Friday', time: '4PM to 6:30PM' }, { day: 'Sunday', time: '4PM to 6:30PM' }]
+  },
+  {
+    number: 8,
+    title: 'HLP Level VIII',
+    subtitle: 'MASTERY AND CULTURAL IMMERSION',
+    image: '../images/HLP_images/HLP_level8.jpg',
+    aboutCourse: 'Highest proficiency level emphasizing complete mastery of Hindi language and deep cultural immersion. Students engage in scholarly discussions, independent research, and cultural criticism. Focus on preserving and advancing Hindi language knowledge for the next generation.',
+    requirements: 'Completion of HLP VII or mastery-level Hindi knowledge',
+    schedule: [{ day: 'Saturday', time: '4PM to 6:30PM' }, { day: 'Tuesday', time: '4PM to 6:30PM' }]
+  }
+];
+
+function openModal(idx) {
+  const level = hlpLevels[idx];
+  document.getElementById('modal-title').textContent = level.title;
+  document.getElementById('modal-subtitle').textContent = level.subtitle;
+  document.getElementById('modal-image').src = level.image;
+  document.getElementById('modal-image').alt = level.title;
+  document.getElementById('modal-about').textContent = level.aboutCourse;
+  document.getElementById('modal-requirements').textContent = level.requirements;
+  const scheduleEl = document.getElementById('modal-schedule');
+  scheduleEl.innerHTML = level.schedule.map(s => `<p class="text-slate-700 font-medium">${s.day} ${s.time}</p>`).join('');
+  const modal = document.getElementById('level-modal');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const modal = document.getElementById('level-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBackdrop(event) {
+  if (event.target === document.getElementById('level-modal')) closeModal();
+}
+
+// Mobile menu
+document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+  document.getElementById('menu-icon').classList.toggle('hidden');
+  document.getElementById('x-icon').classList.toggle('hidden');
+});
+
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+// Footer year
+document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
