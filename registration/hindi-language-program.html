@@ -5,100 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hindi Language Program - Bharatiya Bhasha Parivaar</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/theme.css">
   <style>
-    .anim { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .anim.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; } .d5 { transition-delay: 0.5s; } .d6 { transition-delay: 0.6s; }
-    .d7 { transition-delay: 0.7s; }
-    @keyframes heroIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
-    .hero-in { animation: heroIn 0.6s ease forwards; }
-    .hero-in-2 { animation: heroIn 0.6s 0.1s ease both; }
+    /* Page-specific: modal entrance animation */
     @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
     #level-modal.open .modal-box { animation: modalIn 0.2s ease forwards; }
   </style>
 </head>
-<body class="bg-amber-50 text-slate-900 font-sans">
+<body class="bg-[#FFFBF0] text-[#2C1200] font-sans">
 
-<!-- NAVBAR -->
-<nav class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between h-20">
-      <div class="flex items-center">
-        <a href="../index.html" class="flex items-center gap-2">
-          <div class="bg-orange-600 p-2 rounded-lg">
-            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-          </div>
-          <div>
-            <span class="font-bold text-xl text-slate-900 block leading-tight">Bharatiya Bhasha Parivaar</span>
-            <span class="text-xs text-orange-600 font-medium tracking-wider uppercase">Language School</span>
-          </div>
-        </a>
-      </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="../index.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Home</a>
-        <a href="../about.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">About Us</a>
-        <a href="../programs.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Programs</a>
-        <div class="relative group">
-          <span class="cursor-pointer text-slate-600 hover:text-orange-600 font-medium transition-colors">Registration ▾</span>
-          <div class="absolute left-0 mt-2 w-64 rounded-lg bg-white shadow-lg border border-slate-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-40">
-            <a href="index.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">All Registration Links</a>
-            <a href="hindi-bhasha-program.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Hindi Bhasha Program</a>
-            <a href="hindi-language-program.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Hindi Language Program</a>
-            <a href="bbp-marathi.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Marathi</a>
-            <a href="bbp-gujarati.html" class="block px-4 py-2 text-slate-700 hover:bg-orange-50">Gujarati</a>
-          </div>
-        </div>
-		<a href="../testimonials.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Testimonials</a>
-        <a href="../contact.html" class="text-slate-600 hover:text-orange-600 font-medium transition-colors">Contact</a>
-      </div>
-      <div class="md:hidden flex items-center">
-        <button id="mobile-menu-btn" class="text-slate-600 hover:text-orange-600 focus:outline-none">
-          <svg id="menu-icon" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-          <svg id="x-icon" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-  <div id="mobile-menu" class="md:hidden bg-white border-t border-slate-100 hidden">
-    <div class="px-4 pt-2 pb-4 space-y-1 sm:px-3">
-      <a href="../index.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Home</a>
-      <a href="../about.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">About Us</a>
-      <a href="../programs.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Programs</a>
-      <a href="../contact.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Contact</a>
-      <a href="index.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Registration</a>
-      <div class="space-y-1 pl-4">
-        <a href="hindi-bhasha-program.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Hindi Bhasha Program</a>
-        <a href="hindi-language-program.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Hindi Language Program</a>
-        <a href="bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Marathi</a>
-        <a href="bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Gujarati</a>
-      </div>
-	  <a href="../testimonials/index.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Testimonials</a>
-      <div class="space-y-1 pl-4">
-        <a href="../testimonials.html" class="block px-3 py-2 text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 rounded-md">Fill out a Testimonial</a>
-      </div>
-    </div>
-  </div>
-</nav>
+<div id="navbar-placeholder"></div>
 
 <div class="w-full">
 
   <!-- Header -->
-  <div class="text-white py-16" style="background: linear-gradient(to right, #581c87, #ea580c);">
+  <div class="text-white py-16" style="background: linear-gradient(135deg, #431407 0%, #7C2D12 55%, #9A3412 100%);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-in">Hindi Language Program</h1>
-      <p class="text-xl text-orange-100 hero-in-2">8 Levels of Progressive Hindi Learning</p>
+      <p class="text-xl text-[#FFEDD5] hero-in-2">8 Levels of Progressive Hindi Learning</p>
     </div>
   </div>
 
   <!-- HLP Levels Grid -->
-  <section class="py-20 bg-slate-50">
+  <section class="py-20 bg-[#FFFBF0]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Register Now button -->
       <div class="flex justify-center mb-12">
         <button onclick="document.getElementById('registration-section').scrollIntoView({behavior:'smooth'})"
-          class="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-bold text-lg rounded-lg transition-colors shadow-md hover:shadow-lg">
+          class="px-8 py-3 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-lg rounded-lg transition-colors shadow-md hover:shadow-lg">
           Register Now
         </button>
       </div>
@@ -107,57 +43,29 @@
 
         <div class="anim relative group cursor-pointer" onclick="openModal(0)">
           <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level1.jpg" alt="HLP Level I" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+            <img src="../images/HLP_Year1.jpg" alt="HLP Year 1" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
           </div>
         </div>
 
         <div class="anim d1 relative group cursor-pointer" onclick="openModal(1)">
           <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level2.jpg" alt="HLP Level II" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+            <img src="../images/HLP_Year2.jpg" alt="HLP Year 2" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
           </div>
         </div>
 
         <div class="anim d2 relative group cursor-pointer" onclick="openModal(2)">
           <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level3.jpg" alt="HLP Level III" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+            <img src="../images/HLP_Year3.jpg" alt="HLP Year 3" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
           </div>
         </div>
 
         <div class="anim d3 relative group cursor-pointer" onclick="openModal(3)">
           <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level4.jpg" alt="HLP Level IV" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
-          </div>
-        </div>
-
-        <div class="anim d1 relative group cursor-pointer" onclick="openModal(4)">
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level5.jpg" alt="HLP Level V" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
-          </div>
-        </div>
-
-        <div class="anim d2 relative group cursor-pointer" onclick="openModal(5)">
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level6.jpg" alt="HLP Level VI" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
-          </div>
-        </div>
-
-        <div class="anim d3 relative group cursor-pointer" onclick="openModal(6)">
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level7.jpg" alt="HLP Level VII" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
-          </div>
-        </div>
-
-        <div class="anim d4 relative group cursor-pointer" onclick="openModal(7)">
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <img src="../images/HLP_images/HLP_level8.jpg" alt="HLP Level VIII" class="absolute inset-0 w-full h-full object-cover">
-            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-purple-600 text-white flex items-center justify-center text-2xl font-bold hover:bg-purple-700 transition-colors shadow-md">+</button>
+            <img src="../images/HLP_Year4.jpg" alt="HLP Year 4" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
           </div>
         </div>
 
@@ -166,13 +74,13 @@
   </section>
 
   <!-- Registration Form Section -->
-  <section id="registration-section" class="py-20 bg-white border-t border-slate-200">
+  <section id="registration-section" class="py-20 bg-white border-t border-[#FED7AA]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Register for Hindi Language Program</h2>
-        <p class="text-lg text-slate-600">Complete the form below to enroll in our program</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[#2C1200] mb-4">Register for Hindi Language Program</h2>
+        <p class="text-lg text-stone-600">Complete the form below to enroll in our program</p>
       </div>
-      <div class="w-full rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+      <div class="w-full rounded-xl overflow-hidden border border-[#FED7AA] bg-white shadow-sm">
         <iframe title="Hindi Language Program Registration Form" src="https://form.jotform.com/212636166881158" width="100%" height="1200" frameborder="0" class="block" style="min-height:1200px"></iframe>
       </div>
     </div>
@@ -182,193 +90,478 @@
 
 <!-- LEVEL DETAIL MODAL -->
 <div id="level-modal" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4 z-50 hidden" onclick="closeModalOnBackdrop(event)">
-  <div class="modal-box bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-    <!-- Modal Header -->
-    <div class="sticky top-0 bg-white border-b border-slate-200 p-6 flex justify-between items-center">
+  <div class="modal-box bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#FED7AA]">
+    <div class="sticky top-0 bg-white border-b border-[#FED7AA] p-6 flex justify-between items-center">
       <div>
-        <h2 id="modal-title" class="text-3xl font-bold text-slate-900"></h2>
-        <p id="modal-subtitle" class="text-lg text-slate-600 mt-2"></p>
+        <h2 id="modal-title" class="text-3xl font-bold text-[#2C1200]"></h2>
+        <p id="modal-subtitle" class="text-lg text-stone-600 mt-2"></p>
       </div>
-      <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 transition-colors">
+      <button onclick="closeModal()" class="text-stone-400 hover:text-[#C2410C] transition-colors">
         <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
-    <!-- Modal Content -->
-    <div class="p-8 space-y-8">
+    <div class="p-4 md:p-8 space-y-8">
       <div class="flex justify-center">
-        <div class="w-40 h-40 rounded-xl overflow-hidden shadow-sm">
+        <div class="w-40 h-40 rounded-xl overflow-hidden shadow-sm border border-[#FED7AA]">
           <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
         </div>
       </div>
       <div>
-        <h3 class="text-2xl font-bold text-slate-900 mb-4 pb-2 border-b-2 border-orange-500">ABOUT COURSE</h3>
-        <p id="modal-about" class="text-slate-700 leading-relaxed text-justify"></p>
+        <h3 class="text-2xl font-bold text-[#2C1200] modal-section-title">ABOUT COURSE</h3>
+        <div id="modal-about" class="text-stone-700 leading-relaxed text-justify space-y-4"></div>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-slate-900 mb-3">REQUIREMENTS</h3>
-        <p id="modal-requirements" class="text-slate-700"></p>
+        <h3 class="text-xl font-bold text-[#2C1200] mb-3">REQUIREMENTS</h3>
+        <p id="modal-requirements" class="text-stone-700"></p>
       </div>
       <div>
-        <h3 class="text-xl font-bold text-slate-900 mb-4">CLASS SCHEDULE FOR 2026-2027</h3>
+        <h3 class="text-xl font-bold text-[#2C1200] mb-4">CLASS SCHEDULE FOR 2026-2027</h3>
         <div id="modal-schedule" class="space-y-2"></div>
       </div>
       <div class="flex justify-center pt-4">
-        <button onclick="closeModal()" class="px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-bold rounded-lg transition-colors">
-          ✕ Done
+        <button onclick="closeModal()" class="px-8 py-3 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold rounded-lg transition-colors">
+          &#x2715; Done
         </button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-      <div class="col-span-1 md:col-span-1">
-        <a href="../index.html" class="flex items-center gap-2 mb-6">
-          <div class="bg-orange-600 p-2 rounded-lg"><svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-          <div><span class="font-bold text-xl text-white block leading-tight">Bharatiya Bhasha Parivaar</span><span class="text-xs text-orange-400 font-medium tracking-wider uppercase">Language School</span></div>
-        </a>
-        <p class="text-slate-400 text-sm leading-relaxed mb-6">Empowering the next generation with the rich heritage of Indian languages and culture in California.</p>
-        <div class="flex space-x-4">
-          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-          <a href="#" class="text-slate-400 hover:text-orange-500 transition-colors"><svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
-        <ul class="space-y-3">
-          <li><a href="../index.html" class="hover:text-orange-400 transition-colors text-sm">Home</a></li>
-          <li><a href="../about.html" class="hover:text-orange-400 transition-colors text-sm">About Us</a></li>
-          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Programs</a></li>
-          <li><a href="../contact.html" class="hover:text-orange-400 transition-colors text-sm">Contact Us</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Programs</h3>
-        <ul class="space-y-3">
-          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Hindi Bhasha</a></li>
-          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Hindi Language Program</a></li>
-          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Marathi</a></li>
-          <li><a href="../programs.html" class="hover:text-orange-400 transition-colors text-sm">Gujarati</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact</h3>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span class="text-sm">California, USA</span></li>
-          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.88 2 2 0 0 1 3.59 2.68h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+18582295820" class="text-sm hover:text-orange-400 transition-colors">+1 (858)-229-5820</a></li>
-          <li class="flex items-center gap-3"><svg class="h-5 w-5 text-orange-500 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:support@bharatiyabhasha.org" class="text-sm hover:text-orange-400 transition-colors">support@bharatiyabhasha.org</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="text-sm text-slate-500">&copy; <span id="footer-year"></span> Bharatiya Bhasha Language School. All rights reserved.</p>
-      <div class="flex gap-4 text-sm text-slate-500">
-        <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
-        <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
-      </div>
-    </div>
+<!-- HLP FAQ -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <div class="mb-10">
+    <h2 class="text-3xl font-bold text-[#2C1200] mb-2">Frequently Asked Questions</h2>
+    <div class="w-16 h-1 rounded-full bg-[#EA580C]"></div>
   </div>
-</footer>
+  <div id="hlp-faq-list" class="space-y-3">
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Class Schedule for 2024-2025</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed space-y-1">
+        <p><strong>HLP 1st Year (Level 1 and Level 2)</strong> Thursday 6PM to 8:30PM, Friday 6PM to 8:30PM.</p>
+        <p><strong>HLP 2nd Year (Level 3 and Level 4)</strong> Monday 6PM to 8:30PM, Thursday 7PM to 8:30PM.</p>
+        <p><strong>HLP 3rd Year (Level 5 and Level 6)</strong> Monday 6PM to 8:30PM, Thursday 6PM to 8:30PM.</p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Will this course cover all the credit requirements for graduation and UC admission?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, if the student completes the course through HLP 6, they will satisfy both high school and UC requirements. For a specific example, see the image below. Note: this is for PUSD requirements only.
+        <img src="../images/PUSD_Pathways.png" alt="PUSD Pathways" class="mt-4 w-full rounded-lg border border-[#FED7AA]">
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>What is the grading schedule of the course?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        The courses are done on a semester schedule with each level taking one semester.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>When can my child start?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        A student can join the program in 7th, 8th, 9th, 10th, or 11th grade in order to complete all course requirements for graduation.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>How many hours are spent in class each week?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Currently, we operate fully online, but in a normal schedule, most classes will be taken online and students will be meeting once every 4-5 weeks for field trips. In total, there will be 4-5 hours of in-class instruction every week.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Can my child do only one level?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, all levels are done in pairs, for example, a student must complete both HLP 1 and 2 if they sign up, they cannot do only Level 1 or Level 2.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If my child has prior Hindi knowledge, can they start at a higher level?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, they have to give a qualifying test for reading, writing, and speaking proficiency.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Are HLP courses taken in middle school counted towards high school graduation?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, however, if they take HLP in middle school and continue in High School they will be able to meet the UC a-g requirement.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>How can the credits earned at HLP be recognized by High schools?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed space-y-3">
+        <p>UCs require 10 credits for Fine Arts, and 5 of those Fine Arts Credits can be met with a Foreign Language Class.</p>
+        <p>As regards <strong>SDUSD</strong> specifically, the district has given the following guidance:</p>
+        <p>Students enrolled in world languages courses at District-approved Independent World Languages Schools (IWLS) may earn graduation credit while enrolled at a District high school in Grades 9 – 12 (per Title 5 of the California Code of Regulations). Two years of the same language are needed – equivalent to the second level of high school instruction. If students complete, at a minimum, a world language level 3-4 course and receive a passing grade, they will meet the SDUSD World Languages graduation requirement.</p>
+        <p>Per Title 5 of the California Code of Regulations, graduation credits can only be earned when the IWLS world languages courses are taken concurrently during the students' SDUSD high school years. For instance, students taking Hindi 3-4 at the HLP IWLS site while concurrently enrolled at an SDUSD high school (Grades 9-12) will earn two credits for that academic year (provided they passed the course) as well as meet the SDUSD Languages Other Than English (LOTE) Graduation Requirement. However, students enrolled in middle school (Grades 7-8) can still take world language courses at an IWLS site, but graduation credits will not be earned, and the SDUSD LOTE Graduation Requirement will not be met.</p>
+        <p>Taking a Hindi course at HLP during the students' middle school years will allow them to be more proficient in the target language and take higher levels of the same language while concurrently enrolled at one of SDUSD's high schools. If students take a Hindi level 7-8 at HLP while concurrently enrolled at an SDUSD high school site, they will earn two World Languages graduation credits and meet the SDUSD LOTE Graduation Requirement, as well as have the opportunity to apply for the prestigious CA State Seal of Biliteracy.</p>
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Will I find HLP in the course selection form (CRF) for middle or high school?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, this class will only be counted for credit if you speak with your high school's registrar. PUSD, SDUSD, and SDUHSD counselors and registrars are aware of this program and can assist you.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I finish HLP 1-4 during middle school, will it be considered for high school credits?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, only classes taken during high school will be considered for credits, however, the student will be eligible to join HLP 5 and HLP 6 in high school.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Can I start HLP in 6th grade?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        It will not be counted towards credits, but if you are ok to repeat the courses for stronger foundation, then it is allowed.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>My kid attends private school, can he/she join HLP?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, the program is open for all. However, for credits please talk to your school counselor for credit transfer.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>My kid is proficient in Hindi, can they give a test and get credit?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, check with your counselor for available testing programs.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>How can I enroll my child for HLP?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Fill out the registration form and, upon receipt of a confirmation email, follow the instructions to send the $1100 course fee, which includes registration.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>My child does not know Hindi at all? Can they join?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, absolutely, HLP is designed for non-Hindi speaking kids interested in learning a new language as well.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>Will the 1st year focus on spoken language only?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        No, strong foundation of language comes with both written and spoken skills, both the skills will be introduced from HLP 1 onwards.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>When do sessions start?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Sessions coincide with the school year and last from August until June.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>How much does the course cost?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Total course cost is $1100. Additionally, there is a sibling discount of $50.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>I started with Foreign language at school and completed 1 year. Can I switch to Hindi for the remaining (1 or 2 yrs) to fulfill the Foreign language requirement?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, check with your registrar to ensure your credits transfer from HLP.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I already submitted my Course Request Form, can I still join the program?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, speak to your school registrar or counselor to transfer HLP credits to your school transcript.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I started HLP in middle school, do I need to do anything when moving to high school?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        Yes, talk to your high school's registrar about your participation in HLP and they will guide you through the process of transferring the credits to your high school transcript.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>What does being a "hybrid program" mean?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        HLP was given accreditation based on the hybrid model which means most classes are conducted online and students only participate in-person for field trips, tests, social interaction etc. every 4/5 weeks.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>What is the UC requirement for Foreign Language?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        The UC's require two years of foreign language, but recommend three. HLP levels 1-4 satisfy the two year requirement and levels 5 and 6 will count for three years of foreign language.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I am a student at PUSD, how do I transfer these credits?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vTna9YMg_9cDAlqaz5ZSABHdg6rdK4JC_ADSd-Ej5spAutUi96Gjt34wCRCLOIi_Nj7a0L7N8BSoqoN/pub?embedded=true" width="100%" height="900" class="rounded-lg border border-[#FED7AA] mt-2"></iframe>
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I am a student at SDUHSD, who do I speak to to transfer these credits?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        In SDUHSD, speak to your school's counselor and get the off campus course permission form to fill out before starting HLP. They will be able to guide you from there. For more information on credits, visit the SDUHSD website.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>If I am a student at SDUSD, who do I speak to to transfer these credits?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        The Independent Language Study Form must be completed by the HLP Principal Director. Both the parent and director must sign the form. The completed form is then given to the student's assigned SDUSD counselor.
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>What are the UC requirements for foreign language?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        It requires two consecutive years of study in WASC accredited foreign language school. Anything done before 8th grade is not considered.
+        <img src="../images/PUSD_Pathways.png" alt="PUSD Pathways" class="mt-4 w-full rounded-lg border border-[#FED7AA]">
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>How do the UCs receive the grades?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        The grades are sent to the high school and then the high school provides the grades to the UCs on the student's official transcript.
+        <img src="../images/PUSD_Pathways.png" alt="PUSD Pathways" class="mt-4 w-full rounded-lg border border-[#FED7AA]">
+      </div>
+    </div>
+
+    <div class="faq-item border border-[#FED7AA] rounded-xl overflow-hidden bg-[#FFF7ED]">
+      <button class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-[#2C1200] hover:bg-[#FFF7ED] transition-colors duration-200" aria-expanded="false">
+        <span>What grading system is used on the transcripts?</span>
+        <svg class="faq-icon w-5 h-5 text-[#C2410C] flex-shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+      </button>
+      <div class="faq-body hidden px-6 pb-5 text-stone-700 leading-relaxed">
+        A standard letter grading system is used on the student's official transcript. (A, B, C, D, F)
+        <img src="../images/PUSD_Pathways.png" alt="PUSD Pathways" class="mt-4 w-full rounded-lg border border-[#FED7AA]">
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <script>
-// HLP Level data
-const hlpLevels = [
+  document.querySelectorAll('#hlp-faq-list .faq-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      var body = this.nextElementSibling;
+      var icon = this.querySelector('.faq-icon');
+      this.setAttribute('aria-expanded', !expanded);
+      body.classList.toggle('hidden', expanded);
+      icon.style.transform = expanded ? '' : 'rotate(180deg)';
+    });
+  });
+</script>
+
+<!-- Location & Accreditation -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+  <div class="mb-10">
+    <h2 class="text-3xl font-bold text-[#2C1200] mb-2">Location &amp; Accreditation</h2>
+    <div class="w-16 h-1 rounded-full bg-[#EA580C]"></div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <!-- Location card -->
+    <div class="flex items-start gap-5 border border-[#FED7AA] rounded-xl bg-[#FFF7ED] px-8 py-7">
+      <div class="mt-1 flex-shrink-0 w-11 h-11 rounded-full bg-[#EA580C] flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-[#2C1200] mb-1">Location</h3>
+        <p class="text-stone-700 leading-relaxed">Online/Hybrid Program<br>San Diego, CA</p>
+      </div>
+    </div>
+
+    <!-- WASC card -->
+    <div class="flex items-center gap-6 border border-[#FED7AA] rounded-xl bg-[#FFF7ED] px-8 py-7">
+      <img src="../images/wasc_logo.jpg" alt="WASC Accreditation Logo" class="w-20 h-20 object-contain flex-shrink-0 rounded-lg shadow-sm">
+      <div>
+        <h3 class="text-lg font-bold text-[#2C1200] mb-1">WASC Accredited &amp; UC a-g Approved</h3>
+        <p class="text-stone-700 leading-relaxed text-sm">HLP is a WASC accredited and UC a-g approved Supplementary Education Center located in San Diego.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="../js/components.js"></script>
+<script>
+renderNavbar('../');
+renderFooter('../');
+initScrollAnimations();
+
+// HLP Year data
+var hlpLevels = [
   {
     number: 1,
-    title: 'HLP Level I',
+    title: 'HLP Year 1',
     subtitle: 'INTRODUCTION TO HINDI LANGUAGE',
-    image: '../images/HLP_images/HLP_level1.jpg',
-    aboutCourse: 'HLP I students will be able to read, write and identify Hindi alphabets, numbers, introduce themselves and their family, greet others and carry on basic conversation in Hindi. Students will be able to identify basic things around themselves in everyday life. Throughout the course there is an emphasis on learning Bhartiya (Indian) culture and accepting other cultures. This will provide broader perspective and idea to our students. Students will initiate and sustain simple conversation about self, family, greetings, and birthdays. Students will interpret a video related to the basic personal information about family and descriptions. Students will present information about family using simple Hindi words. Students will understand aural sounds for Hindi related to self, family, greetings, and birthdays. Students will be able to copy (modeled) written form of Hindi for their name and greetings. Culture and Comparison: Students will recognize and practice culturally appropriate social behaviors and gestures for greetings and taking leave in Indian-American society.',
+    image: '../images/HLP_Year1.jpg',
+    aboutCourse: '<p><strong>HLP Level 1</strong><br>HLP I students will be able to read, write and identify Hindi alphabets, numbers, introduce themselves and their family, greet others and carry on basic conversation in Hindi. Students will be able to identify basic things around themselves in everyday life. Throughout the course there is an emphasis on learning Bhartiya (Indian) culture and accepting other cultures. This will provide broader perspective and idea to our students. Students will initiate and sustain simple conversation about self, family, greetings, and birthdays. Students will interpret a video related to the basic personal information about family and descriptions. Students will present information about family using simple Hindi words. Students will understand aural sounds for Hindi related to self, family, greetings, and birthdays. Students will be able to copy (modeled) written form of Hindi for their name and greetings. Culture and Comparison: Students will recognize and practice culturally appropriate social behaviors and gestures for greetings and taking leave in Indian-American society.</p><p><strong>HLP Level 2</strong><br>HLP II students will be studying the language and culture of India and Hindi speaking parts of the world. The overall goal is to develop functional communicative abilities in students to express basic communication needs in culturally appropriate ways. The skills of speaking, listening, reading and writing will be attained by students through exposure to rich authentic linguistic and cultural teaching contexts that emphasize students&#39; developing competency in Hindi language and culture. The course objectives include developing communication skills and understanding various aspects of culture through exposure to cultural activities that provide each student an opportunity to enhance language learning in appropriate cultural contexts include brief overview of ancient scriptures in modern Bharat. These activities include Hindi media, discussion of important Indian and American events, and field trips to live Hindi plays, Hindi movies, and other local traditional ethnic cultural activities that will familiarize students with perspectives, practices and products of Hindi speaking regions of the world.</p>',
     requirements: 'Basic Hindi language understanding and speaking',
     schedule: [{ day: 'Thursday', time: '6PM to 8:30PM' }, { day: 'Friday', time: '6PM to 8:30PM' }]
   },
   {
     number: 2,
-    title: 'HLP Level II',
-    subtitle: 'Language & culture of Hindi speaking parts of the world',
-    image: '../images/HLP_images/HLP_level2.jpg',
-    aboutCourse: 'HLP II students will be studying the language and culture of India and Hindi speaking parts of the world. The overall goal is to develop functional communicative abilities in students to express basic communication needs in culturally appropriate ways. The skills of speaking, listening, reading and writing will be attained by students through exposure to rich authentic linguistic and cultural teaching contexts that emphasize students\' developing competency in Hindi language and culture. The course objectives include developing communication skills and understanding various aspects of culture through exposure to cultural activities that provide each student an opportunity to enhance language learning in appropriate cultural contexts include brief overview of ancient scriptures in modern Bharat. These activities include Hindi media, discussion of important Indian and American events, and field trips to live Hindi plays, Hindi movies, and other local traditional ethnic cultural activities that will familiarize students with perspectives, practices and products of Hindi speaking regions of the world.',
-    requirements: 'Basic Hindi language understanding and speaking',
-    schedule: [{ day: 'Thursday', time: '7:00PM to 9:00PM' }, { day: 'Friday', time: '6:00PM to 9:30PM' }]
-  },
-  {
-    number: 3,
-    title: 'HLP Level III',
+    title: 'HLP Year 2',
     subtitle: 'INTERMEDIATE HINDI LANGUAGE',
-    image: '../images/HLP_images/HLP_level3.jpg',
-    aboutCourse: 'HLP III takes students closer to the language and culture of India, and Hindi speaking parts of the World. The overall goal is to develop functional communicative abilities in students to express basic communication needs with confidence. The skills of speaking, listening, reading and writing in Hindi will be attained by students being exposed to rich authentic linguistic and cultural teaching contexts that emphasize students developing competency in Hindi language and culture. Students will develop an appreciation for the culture of India. The course objectives include improving communication skills and understanding of cultural aspects. Cultural activities are arranged to provide each student with opportunities to enhance language and cultural learning. These activities include Hindi movies, discussion on important Indian and American events, and field trips to local traditional Indian music programs and/or festivities, and reading and listening to news in Hindi. To share his/her daily routine using appropriate verbs and time, or figure out a day and time for two friends to plan for a movie outing based on their activities and schedule. To demonstrate understanding of shopping for general merchandise, and clothes with proper size and color.',
-    requirements: 'Completion of HLP II or intermediate Hindi knowledge',
+    image: '../images/HLP_Year2.jpg',
+    aboutCourse: '<p><strong>HLP Level 3</strong><br>HLP III takes students closer to the language and culture of India, and Hindi speaking parts of the World. The overall goal is to develop functional communicative abilities in students to express basic communication needs with confidence. The skills of speaking, listening, reading and writing in Hindi will be attained by students being exposed to rich authentic linguistic and cultural teaching contexts that emphasize students developing competency in Hindi language and culture. Students will develop an appreciation for the culture of India. The course objectives include improving communication skills and understanding of cultural aspects. Cultural activities are arranged to provide each student with opportunities to enhance language and cultural learning. These activities include Hindi movies, discussion on important Indian and American events, and field trips to local traditional Indian music programs and/or festivities, and reading and listening to news in Hindi. To share his/her daily routine using appropriate verbs and time, or figure out a day and time for two friends to plan for a movie outing based on their activities and schedule. To demonstrate understanding of shopping for general merchandise, and clothes with proper size and color.</p><p><strong>HLP Level 4</strong><br>Students refine intermediate skills with advanced grammar, idiomatic expressions, and cultural nuances. Focus on literary appreciation, business Hindi, and sophisticated conversation. Students complete research projects and cultural presentations.</p>',
+    requirements: 'Completion of HLP Year 1 or intermediate Hindi knowledge',
     schedule: [{ day: 'Monday', time: '6PM to 8:30PM' }, { day: 'Thursday', time: '6PM to 8:30PM' }]
   },
   {
-    number: 4,
-    title: 'HLP Level IV',
-    subtitle: 'ADVANCED INTERMEDIATE HINDI',
-    image: '../images/HLP_images/HLP_level4.jpg',
-    aboutCourse: 'Students refine intermediate skills with advanced grammar, idiomatic expressions, and cultural nuances. Focus on literary appreciation, business Hindi, and sophisticated conversation. Students complete research projects and cultural presentations.',
-    requirements: 'Completion of HLP III or advanced intermediate Hindi knowledge',
-    schedule: [{ day: 'Tuesday', time: '6PM to 8:30PM' }, { day: 'Thursday', time: '6PM to 8:30PM' }]
-  },
-  {
-    number: 5,
-    title: 'HLP Level V',
+    number: 3,
+    title: 'HLP Year 3',
     subtitle: 'UPPER INTERMEDIATE HINDI',
-    image: '../images/HLP_images/HLP_level5.jpg',
-    aboutCourse: 'Intensive focus on advanced communication, literary analysis, and cultural exploration. Students engage with contemporary Hindi media, classical literature, and complex dialogues. Emphasis on developing nuanced expression and cultural competence.',
-    requirements: 'Completion of HLP IV or upper intermediate Hindi knowledge',
+    image: '../images/HLP_Year3.jpg',
+    aboutCourse: '<p><strong>HLP Level 5</strong><br>Intensive focus on advanced communication, literary analysis, and cultural exploration. Students engage with contemporary Hindi media, classical literature, and complex dialogues. Emphasis on developing nuanced expression and cultural competence.</p><p><strong>HLP Level 6</strong><br>Students transition toward advanced proficiency with emphasis on academic Hindi, literary works, and sophisticated cultural understanding. Discussion-based learning, research presentations, and detailed writing assignments form the core curriculum.</p>',
+    requirements: 'Completion of HLP Year 2 or upper intermediate Hindi knowledge',
     schedule: [{ day: 'Wednesday', time: '6PM to 8:30PM' }, { day: 'Saturday', time: '2PM to 4:30PM' }]
   },
   {
-    number: 6,
-    title: 'HLP Level VI',
-    subtitle: 'PRE-ADVANCED HINDI PROFICIENCY',
-    image: '../images/HLP_images/HLP_level6.jpg',
-    aboutCourse: 'Students transition toward advanced proficiency with emphasis on academic Hindi, literary works, and sophisticated cultural understanding. Discussion-based learning, research presentations, and detailed writing assignments form the core curriculum.',
-    requirements: 'Completion of HLP V or pre-advanced Hindi knowledge',
-    schedule: [{ day: 'Sunday', time: '2PM to 4:30PM' }, { day: 'Monday', time: '6PM to 8:30PM' }]
-  },
-  {
-    number: 7,
-    title: 'HLP Level VII',
+    number: 4,
+    title: 'HLP Year 4',
     subtitle: 'ADVANCED HINDI PROFICIENCY',
-    image: '../images/HLP_images/HLP_level7.jpg',
-    aboutCourse: 'Mastery-level instruction with focus on academic discourse, critical analysis of literature, and nuanced cultural interpretation. Students develop teaching competency and advanced writing skills. Classical and contemporary Hindi literature form the curriculum foundation.',
-    requirements: 'Completion of HLP VI or advanced Hindi knowledge',
+    image: '../images/HLP_Year4.jpg',
+    aboutCourse: '<p><strong>HLP Level 7</strong><br>Mastery-level instruction with focus on academic discourse, critical analysis of literature, and nuanced cultural interpretation. Students develop teaching competency and advanced writing skills. Classical and contemporary Hindi literature form the curriculum foundation.</p><p><strong>HLP Level 8</strong><br>Highest proficiency level emphasizing complete mastery of Hindi language and deep cultural immersion. Students engage in scholarly discussions, independent research, and cultural criticism. Focus on preserving and advancing Hindi language knowledge for the next generation.</p>',
+    requirements: 'Completion of HLP Year 3 or advanced Hindi knowledge',
     schedule: [{ day: 'Friday', time: '4PM to 6:30PM' }, { day: 'Sunday', time: '4PM to 6:30PM' }]
-  },
-  {
-    number: 8,
-    title: 'HLP Level VIII',
-    subtitle: 'MASTERY AND CULTURAL IMMERSION',
-    image: '../images/HLP_images/HLP_level8.jpg',
-    aboutCourse: 'Highest proficiency level emphasizing complete mastery of Hindi language and deep cultural immersion. Students engage in scholarly discussions, independent research, and cultural criticism. Focus on preserving and advancing Hindi language knowledge for the next generation.',
-    requirements: 'Completion of HLP VII or mastery-level Hindi knowledge',
-    schedule: [{ day: 'Saturday', time: '4PM to 6:30PM' }, { day: 'Tuesday', time: '4PM to 6:30PM' }]
   }
 ];
 
 function openModal(idx) {
-  const level = hlpLevels[idx];
+  var level = hlpLevels[idx];
   document.getElementById('modal-title').textContent = level.title;
   document.getElementById('modal-subtitle').textContent = level.subtitle;
   document.getElementById('modal-image').src = level.image;
   document.getElementById('modal-image').alt = level.title;
-  document.getElementById('modal-about').textContent = level.aboutCourse;
+  document.getElementById('modal-about').innerHTML = level.aboutCourse;
   document.getElementById('modal-requirements').textContent = level.requirements;
-  const scheduleEl = document.getElementById('modal-schedule');
-  scheduleEl.innerHTML = level.schedule.map(s => `<p class="text-slate-700 font-medium">${s.day} ${s.time}</p>`).join('');
-  const modal = document.getElementById('level-modal');
+  var scheduleEl = document.getElementById('modal-schedule');
+  scheduleEl.innerHTML = level.schedule.map(function(s) {
+    return '<p class="text-stone-700 font-medium">' + s.day + ' ' + s.time + '</p>';
+  }).join('');
+  var modal = document.getElementById('level-modal');
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
-  const modal = document.getElementById('level-modal');
+  var modal = document.getElementById('level-modal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
   document.body.style.overflow = '';
@@ -378,23 +571,6 @@ function closeModalOnBackdrop(event) {
   if (event.target === document.getElementById('level-modal')) closeModal();
 }
 
-// Mobile menu
-document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
-  document.getElementById('menu-icon').classList.toggle('hidden');
-  document.getElementById('x-icon').classList.toggle('hidden');
-});
-
-// Scroll animations
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.anim').forEach(el => obs.observe(el));
-
-// Footer year
-document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-// Close modal on Escape key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeModal();
 });

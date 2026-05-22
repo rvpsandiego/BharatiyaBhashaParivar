@@ -1,0 +1,94 @@
+/* ── Bharatiya Bhasha Parivaar — Theme ── */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ─── Typography ────────────────────────────────────────── */
+body {
+  font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Saffron Page Header ─────────────────────────────────
+   Used on inner-page hero banners (about, programs, etc.)    */
+.saffron-header {
+  background: linear-gradient(135deg, #431407 0%, #7C2D12 55%, #9A3412 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ─── CTA gradient ────────────────────────────────────────*/
+.saffron-cta {
+  background: linear-gradient(135deg, #9A3412 0%, #C2410C 40%, #EA580C 70%, #C2410C 100%);
+}
+
+/* ─── Card hover glow ─────────────────────────────────────*/
+.saffron-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+.saffron-card:hover {
+  box-shadow: 0 8px 30px rgba(194, 65, 12, 0.15);
+  border-color: rgba(194, 65, 12, 0.45) !important;
+  transform: translateY(-2px);
+}
+
+/* ─── Testimonial card accent border ─────────────────────*/
+.testimonial-card {
+  border-top: 3px solid #C2410C;
+}
+
+/* ─── Decorative divider ─────────────────────────────────*/
+.saffron-divider {
+  height: 3px;
+  background: linear-gradient(to right, transparent, #EA580C, transparent);
+  border: none;
+  margin: 0;
+  opacity: 0.5;
+}
+
+/* ─── Nav accent border ──────────────────────────────────*/
+.nav-saffron {
+  border-bottom: 2px solid rgba(194, 65, 12, 0.25);
+}
+
+/* ─── Footer warm gradient ────────────────────────────────*/
+.footer-warm {
+  background: linear-gradient(180deg, #1A0800 0%, #0F0400 100%);
+}
+
+/* ─── Registration hub card ──────────────────────────────*/
+.reg-card {
+  transition: all 0.25s ease;
+  border: 1.5px solid #FED7AA;
+  background: #FFFBF0;
+}
+.reg-card:hover {
+  border-color: #EA580C;
+  background: #FFF7ED;
+  box-shadow: 0 4px 16px rgba(194, 65, 12, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ─── Modal section header ───────────────────────────────*/
+.modal-section-title {
+  border-bottom: 2px solid #EA580C;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ─── Hero background dot pattern ────────────────────────
+   Subtle repeated geometric motif                         */
+.hero-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(194,65,12,0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 1;
+}
