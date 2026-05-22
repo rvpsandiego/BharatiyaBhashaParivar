@@ -45,8 +45,8 @@
       '            <a href="' + rootPath + 'registration/index.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">All Registration Links</a>',
       '            <a href="' + rootPath + 'registration/hindi-bhasha-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Bhasha Program</a>',
       '            <a href="' + rootPath + 'registration/hindi-language-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Language Program</a>',
-      '            <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Marathi</a>',
-      '            <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Gujarati</a>',
+      /*'            <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Marathi</a>',
+      '            <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Gujarati</a>',*/
       '          </div>',
       '        </div>',
       '        <a href="' + rootPath + 'testimonials.html" class="text-stone-600 hover:text-[#C2410C] font-medium transition-colors">Testimonials</a>',
@@ -75,8 +75,8 @@
       '      <div class="space-y-1 pl-4">',
       '        <a href="' + rootPath + 'registration/hindi-bhasha-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Bhasha Program</a>',
       '        <a href="' + rootPath + 'registration/hindi-language-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Language Program</a>',
-      '        <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Marathi</a>',
-      '        <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Gujarati</a>',
+      /* '        <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Marathi</a>',
+      '        <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Gujarati</a>',*/
       '      </div>',
       '    </div>',
       '  </div>',
@@ -139,8 +139,8 @@
       '        <ul class="space-y-3">',
       '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">Hindi Bhasha</a></li>',
       '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">Hindi Language Program</a></li>',
-      '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">BBP Marathi</a></li>',
-      '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">BBP Gujarati</a></li>',
+      /*'          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">BBP Marathi</a></li>',
+      '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">BBP Gujarati</a></li>',*/
       '        </ul>',
       '      </div>',
 
