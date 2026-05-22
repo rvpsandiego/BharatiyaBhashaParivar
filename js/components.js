@@ -51,6 +51,15 @@
       '        </div>',
       '        <a href="' + rootPath + 'testimonials.html" class="text-stone-600 hover:text-[#C2410C] font-medium transition-colors">Testimonials</a>',
       '        <a href="' + rootPath + 'contact.html" class="text-stone-600 hover:text-[#C2410C] font-medium transition-colors">Contact</a>',
+      '        <div class="relative group">',
+      '          <span class="cursor-pointer text-stone-600 hover:text-[#C2410C] font-medium transition-colors">FAQs &#9662;</span>',
+      '          <div class="absolute left-0 mt-2 w-64 rounded-xl bg-white shadow-xl border border-[#FED7AA] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-40 overflow-hidden">',
+      '            <a href="' + rootPath + 'FAQs/index.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">All FAQ Pages</a>',
+      '            <a href="' + rootPath + 'FAQs/hindi-bhasha-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Bhasha Program</a>',
+      '            <a href="' + rootPath + 'FAQs/hindi-language-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Language Program</a>',
+      '          </div>',
+      '        </div>',
+      
       '      </div>',
 
       /* Mobile hamburger button */
@@ -77,6 +86,11 @@
       '        <a href="' + rootPath + 'registration/hindi-language-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Language Program</a>',
       /* '        <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Marathi</a>',
       '        <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Gujarati</a>',*/
+      '      </div>',
+      '      <a href="' + rootPath + 'FAQs/index.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">FAQs</a>',
+      '      <div class="space-y-1 pl-4">',
+      '        <a href="' + rootPath + 'FAQs/hindi-bhasha-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Bhasha Program</a>',
+      '        <a href="' + rootPath + 'FAQs/hindi-language-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Language Program</a>',
       '      </div>',
       '    </div>',
       '  </div>',
