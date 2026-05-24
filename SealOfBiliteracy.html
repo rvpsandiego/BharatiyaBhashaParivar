@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seal of Biliteracy Test - Bharatiya Bhasha Parivaar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="bg-[#FFFBF0] text-[#2C1200] font-sans">
+
+<div id="navbar-placeholder"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <h1 class="text-4xl font-bold text-[#2C1200] mb-4">Seal of Biliteracy Test</h1>
+  <p class="mb-8 text-stone-600">Please complete the registration form below.</p>
+  <div class="w-full min-h-[700px] rounded-xl overflow-hidden border border-[#FED7AA] shadow-sm">
+    <iframe title="Seal of Biliteracy Test" src="https://form.jotform.com/261308689169167" width="100%" height="1200" frameborder="0" class="block"></iframe>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      var body = this.nextElementSibling;
+      var icon = this.querySelector('.faq-icon');
+      this.setAttribute('aria-expanded', !expanded);
+      body.classList.toggle('hidden', expanded);
+      icon.style.transform = expanded ? '' : 'rotate(180deg)';
+    });
+  });
+</script>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js"></script>
+<script>
+  renderNavbar('');
+  renderFooter('');
+</script>
+</body>
+</html>

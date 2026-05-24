@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summer Classes - Bharatiya Bhasha Parivaar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="bg-[#FFFBF0] text-[#2C1200] font-sans">
+
+<div id="navbar-placeholder"></div>
+
+<div class="w-full">
+
+  <!-- Header -->
+  <div class="saffron-header text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 hero-in">Summer Classes</h1>
+      <p class="text-xl text-[#FFEDD5] max-w-3xl mx-auto hero-in-2">Join Summer Classes where you can learn Hindi outside of the school year!</p>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+  <div class="w-full min-h-[700px] rounded-xl overflow-hidden border border-[#FED7AA] shadow-sm">
+    <iframe title="Summer Camp PDF" src="SummerClass/2026SummerClassSchedule.pdf" width="100%" height="1200" frameborder="0" class="block"></iframe>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      var body = this.nextElementSibling;
+      var icon = this.querySelector('.faq-icon');
+      this.setAttribute('aria-expanded', !expanded);
+      body.classList.toggle('hidden', expanded);
+      icon.style.transform = expanded ? '' : 'rotate(180deg)';
+    });
+  });
+</script>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/components.js"></script>
+<script>
+  renderNavbar('');
+  renderFooter('');
+</script>
+</body>
+</html>

@@ -45,6 +45,8 @@
       '            <a href="' + rootPath + 'registration/index.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">All Registration Links</a>',
       '            <a href="' + rootPath + 'registration/hindi-bhasha-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Bhasha Program</a>',
       '            <a href="' + rootPath + 'registration/hindi-language-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Language Program</a>',
+      '            <a href="' + rootPath + 'SummerClasses.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Summer Classes</a>',
+      '            <a href="' + rootPath + 'SealOfBiliteracy.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Seal Of Biliteracy  </a>',
       /*'            <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Marathi</a>',
       '            <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Gujarati</a>',*/
       '          </div>',
@@ -87,6 +89,7 @@
       /* '        <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Marathi</a>',
       '        <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">BBP Gujarati</a>',*/
       '      </div>',
+      '      <a href="' + rootPath + 'SealOfBiliteracy.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Seal of Biliteracy</a>',
       '      <a href="' + rootPath + 'FAQs/index.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">FAQs</a>',
       '      <div class="space-y-1 pl-4">',
       '        <a href="' + rootPath + 'FAQs/hindi-bhasha-program.html" class="block px-3 py-2 text-base font-medium text-stone-700 hover:text-[#C2410C] hover:bg-[#FFF7ED] rounded-md">Hindi Bhasha Program</a>',
