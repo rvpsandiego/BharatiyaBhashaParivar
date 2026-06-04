@@ -24,8 +24,8 @@
       /* Logo */
       '      <div class="flex items-center">',
       '        <a href="' + rootPath + 'index.html" class="flex items-center gap-3">',
-      '          <div class="bg-[#C2410C] p-2 rounded-lg shadow-sm">',
-      '            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+      '          <div class="flex-shrink-0">',
+      '            <img src="' + rootPath + 'images/BBP_Header_Footer_Logo.png" alt="BBP Logo" class="h-20 w-auto object-contain">',
       '          </div>',
       '          <div>',
       '            <span class="font-bold text-xl text-[#2C1200] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivaar</span>',
@@ -123,8 +123,8 @@
       /* Branding + social */
       '      <div class="col-span-1 md:col-span-1">',
       '        <a href="' + rootPath + 'index.html" class="flex items-center gap-3 mb-6">',
-      '          <div class="bg-[#C2410C] p-2 rounded-lg">',
-      '            <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+      '          <div class="flex-shrink-0">',
+      '            <img src="' + rootPath + 'images/BBP_Header_Footer_Logo.png" alt="BBP Logo" class="h-10 w-auto object-contain">',
       '          </div>',
       '          <div>',
       '            <span class="font-bold text-xl text-[#FED7AA] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivaar</span>',
