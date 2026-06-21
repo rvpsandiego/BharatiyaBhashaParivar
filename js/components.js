@@ -1,5 +1,5 @@
 /**
- * Bharatiya Bhasha Parivaar — shared components (Saffron Theme)
+ * Bharatiya Bhasha Parivar — shared components (Saffron Theme)
  *
  * renderNavbar(rootPath)        — injects the site navbar into #navbar-placeholder
  * renderFooter(rootPath)        — injects the site footer into #footer-placeholder
@@ -28,7 +28,7 @@
       '            <img src="' + rootPath + 'images/BBP_Header_Footer_Logo.png" alt="BBP Logo" class="h-20 w-auto object-contain">',
       '          </div>',
       '          <div>',
-      '            <span class="font-bold text-xl text-[#2C1200] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivaar</span>',
+      '            <span class="font-bold text-xl text-[#2C1200] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivar</span>',
       '            <span class="text-xs text-[#C2410C] font-semibold tracking-wider uppercase">Language School</span>',
       '          </div>',
       '        </a>',
@@ -127,7 +127,7 @@
       '            <img src="' + rootPath + 'images/BBP_Header_Footer_Logo.png" alt="BBP Logo" class="h-10 w-auto object-contain">',
       '          </div>',
       '          <div>',
-      '            <span class="font-bold text-xl text-[#FED7AA] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivaar</span>',
+      '            <span class="font-bold text-xl text-[#FED7AA] block leading-tight" style="font-family:\'Poppins\',system-ui,sans-serif">Bharatiya Bhasha Parivar</span>',
       '            <span class="text-xs text-[#EA580C] font-semibold tracking-wider uppercase">Language School</span>',
       '          </div>',
       '        </a>',
