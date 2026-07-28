@@ -47,6 +47,7 @@
       '            <a href="' + rootPath + 'registration/hindi-language-program.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Hindi Language Program</a>',
       '            <a href="' + rootPath + 'SummerClasses.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Summer Classes</a>',
       '            <a href="' + rootPath + 'SealOfBiliteracy.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Seal Of Biliteracy  </a>',
+      '            <a href="' + rootPath + 'TranscriptRequest.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">Transcript Request</a>',
       /*'            <a href="' + rootPath + 'registration/bbp-marathi.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Marathi</a>',
       '            <a href="' + rootPath + 'registration/bbp-gujarati.html" class="block px-4 py-2.5 text-stone-700 hover:bg-[#FFF7ED] hover:text-[#C2410C] transition-colors">BBP Gujarati</a>',*/
       '          </div>',
