@@ -7,31 +7,146 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/animations.css">
   <link rel="stylesheet" href="../css/theme.css">
+  <style>
+    @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+    #level-modal.open .modal-box { animation: modalIn 0.2s ease forwards; }
+  </style>
 </head>
 <body class="bg-[#FFFBF0] text-[#2C1200] font-sans">
 
 <div id="navbar-placeholder"></div>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-  <h1 class="text-4xl font-bold text-[#2C1200] mb-4">Hindi Bhasha Program</h1>
-  <p class="mb-8 text-stone-600">Please complete the registration form below.</p>
-  <div class="w-full min-h-[700px] rounded-xl overflow-hidden border border-[#FED7AA] shadow-sm">
-    <iframe title="Hindi Bhasha Program Registration" src="https://form.jotform.com/231568371808160" width="100%" height="1200" frameborder="0" class="block"></iframe>
+<div class="w-full">
+
+  <div class="text-white py-16" style="background: linear-gradient(135deg, #431407 0%, #7C2D12 55%, #9A3412 100%);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-in">Hindi Bhasha Program</h1>
+      <p class="text-xl text-[#FFEDD5] hero-in-2">8 Years of Progressive Hindi Learning</p>
+    </div>
   </div>
+
+  <section class="py-20 bg-[#FFFBF0]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-center mb-12">
+        <button onclick="document.getElementById('registration-section').scrollIntoView({behavior:'smooth'})"
+          class="px-8 py-3 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold text-lg rounded-lg transition-colors shadow-md hover:shadow-lg">
+          Register Now
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="anim relative group cursor-pointer" onclick="openModal(0)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-1.jpg" alt="Hindi Bhasha Year 1" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d1 relative group cursor-pointer" onclick="openModal(1)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-2.jpg" alt="Hindi Bhasha Year 2" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d2 relative group cursor-pointer" onclick="openModal(2)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-3.jpg" alt="Hindi Bhasha Year 3" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d3 relative group cursor-pointer" onclick="openModal(3)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-4.jpg" alt="Hindi Bhasha Year 4" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d4 relative group cursor-pointer" onclick="openModal(4)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-5.jpg" alt="Hindi Bhasha Year 5" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d5 relative group cursor-pointer" onclick="openModal(5)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-6.jpg" alt="Hindi Bhasha Year 6" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d6 relative group cursor-pointer" onclick="openModal(6)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-7.jpg" alt="Hindi Bhasha Year 7" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+        <div class="anim d7 relative group cursor-pointer" onclick="openModal(7)">
+          <div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+            <img src="../images/HBP-Year-8.jpg" alt="Hindi Bhasha Year 8" class="absolute inset-0 w-full h-full object-cover">
+            <button class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-[#C2410C] text-white flex items-center justify-center text-2xl font-bold hover:bg-[#9A3412] transition-colors shadow-md">+</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="registration-section" class="py-20 bg-white border-t border-[#FED7AA]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#2C1200] mb-4">Register for Hindi Bhasha Program</h2>
+        <p class="text-lg text-stone-600 mb-6">Complete the form below to enroll in our program</p>
+
+      </div>
+      <div class="w-full rounded-xl overflow-hidden border border-[#FED7AA] bg-white shadow-sm">
+        <iframe title="Hindi Bhasha Program Registration Form" src="https://form.jotform.com/231568371808160" width="100%" height="1200" frameborder="0" class="block" style="min-height:1200px"></iframe>
+      </div>
+    </div>
+  </section>
+
 </div>
 
-<script>
-  document.querySelectorAll('.faq-trigger').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      var body = this.nextElementSibling;
-      var icon = this.querySelector('.faq-icon');
-      this.setAttribute('aria-expanded', !expanded);
-      body.classList.toggle('hidden', expanded);
-      icon.style.transform = expanded ? '' : 'rotate(180deg)';
-    });
-  });
-</script>
+<div id="level-modal" class="fixed inset-0 bg-black bg-opacity-50 items-center justify-center p-4 z-50 hidden" onclick="closeModalOnBackdrop(event)">
+  <div class="modal-box bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#FED7AA]">
+    <div class="sticky top-0 bg-white border-b border-[#FED7AA] p-6 flex justify-between items-center">
+      <div>
+        <h2 id="modal-title" class="text-3xl font-bold text-[#2C1200]"></h2>
+        <p id="modal-subtitle" class="text-lg text-stone-600 mt-2"></p>
+      </div>
+      <button onclick="closeModal()" class="text-stone-400 hover:text-[#C2410C] transition-colors">
+        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="p-4 md:p-8 space-y-8">
+      <div class="flex justify-center">
+        <div class="w-40 h-40 rounded-xl overflow-hidden shadow-sm border border-[#FED7AA]">
+          <img id="modal-image" src="" alt="" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-[#2C1200] modal-section-title">ABOUT COURSE</h3>
+        <div id="modal-about" class="text-stone-700 leading-relaxed text-justify space-y-4"></div>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-[#2C1200] mb-3">REQUIREMENTS</h3>
+        <p id="modal-requirements" class="text-stone-700"></p>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-[#2C1200] mb-4">CLASS SCHEDULE FOR 2026-2027</h3>
+        <div id="modal-schedule" class="space-y-2"></div>
+      </div>
+      <div class="flex justify-center pt-4">
+        <button onclick="closeModal()" class="px-8 py-3 bg-[#C2410C] hover:bg-[#9A3412] text-white font-bold rounded-lg transition-colors">
+          &#x2715; Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="footer-placeholder"></div>
 
@@ -39,6 +154,115 @@
 <script>
   renderNavbar('../');
   renderFooter('../');
+  initScrollAnimations();
+
+  var hbpLevels = [
+    {
+      number: 1,
+      title: 'Pahal - Year 1',
+      subtitle: 'FOUNDATIONAL HINDI ESSENTIALS',
+      image: '../images/HBP-Year-1.jpg',
+      aboutCourse: '<p>In <strong>Pahal - Year 1</strong>, students will confidently greet and introduce themselves in Hindi, count from 1 to 10, identify common colors, fruits, and animals, name key body parts, and recite simple poems with proper pronunciation and expression.</p>',
+      requirements: 'No prior Hindi knowledge required',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 2,
+      title: 'Pravesh - Year 2',
+      subtitle: 'INTRODUCTION TO HINDI ALPHABET',
+      image: '../images/HBP-Year-2.jpg',
+      aboutCourse: '<p>In <strong>Pravesh - Year 2</strong>, students will be introduced to the Hindi alphabet, including sounds and words, and will begin to learn basic vocabulary. They will learn to write Swar (vowels) and count from 1 to 20. The course will include revision of colors, fruits, animals, and body parts. Students will also learn basic verbs, object shapes, and practice forming simple introductory sentences for oral communication, such as stating their name, age, class, and common greetings.</p>',
+      requirements: 'Completion of Year 1 or beginner Hindi knowledge',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 3,
+      title: 'Parichay - Year 3',
+      subtitle: 'BUILDING READING AND WRITING CONFIDENCE',
+      image: '../images/HBP-Year-3.jpg',
+      aboutCourse: '<p>In <strong>Parichay - Year 3</strong>, students will be able to recognize and pronounce Swar and Vyanjan sounds, form words, and write them accurately. They will confidently count from 1 to 40 and identify colors, fruits, animals, body parts, verbs, and object shapes. Students will recall the days of the week, name common festivals, and identify different types of clothing and family relations. They will understand the basic grammar of "Main," "Mera," "Meri," and similar terms. Additionally, they will engage in basic oral conversations, introducing themselves, stating their age, grade, parents&#39; names, place of residence, and preferences.</p>',
+      requirements: 'Completion of Year 2 or basic Hindi fluency',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 4,
+      title: 'Prayas - Year 4',
+      subtitle: 'STRENGTHENING WORD FORMATION',
+      image: '../images/HBP-Year-4.jpg',
+      aboutCourse: '<p>In <strong>Prayas - Year 4</strong>, students will strengthen their understanding of alphabets and sounds, enabling them to form 2-4 letter words and use them to create simple sentences. They will be introduced to maatra, and continue expanding their vocabulary. Students will revise Swar and Vyanjan counting from 1 to 50, and work with 2 and 3 letter words without maatra. The course will introduce Barahkhadi and cover vocabulary related to colors, fruits, animals, body parts, verbs, object shapes, days of the week, festivals, clothes, family relations, seasons, and months. Students will learn about things in the class and the house, and use pronouns such as aap, tu, tum, main, and hum. Grammar topics will include an introduction to nouns and tenses.</p>',
+      requirements: 'Completion of Year 3 or intermediate Hindi reading ability',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 5,
+      title: 'Prayas Adv - Year 5',
+      subtitle: 'ADVANCED FOUNDATIONAL HINDI',
+      image: '../images/HBP-Year-5.jpg',
+      aboutCourse: '<p>In <strong>Prayas Adv - Year 5</strong>, students will strengthen their understanding of alphabets and sounds, enabling them to form 2-4 letter words and use them to create simple sentences. They will be introduced to maatra, and continue expanding their vocabulary. Students will revise Swar and Vyanjan counting from 1 to 50, and work with 2 and 3 letter words without maatra. The course will introduce Barahkhadi and cover vocabulary related to colors, fruits, animals, body parts, verbs, object shapes, days of the week, festivals, clothes, family relations, seasons, and months. Students will learn about things in the class and the house, and use pronouns such as aap, tu, tum, main, and hum. Grammar topics will include an introduction to nouns and tenses.</p>',
+      requirements: 'Completion of Year 4 or strong Hindi foundation',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 6,
+      title: 'Prabodh - Year 6',
+      subtitle: 'GRAMMAR, TENSES, AND SENTENCE WORK',
+      image: '../images/HBP-Year-6.jpg',
+      aboutCourse: '<p>In <strong>Prabodh - Year 6</strong>, students will understand and use singular and plural forms accurately and incorporate action verbs effectively in their speech. They will learn the proper use of tense, verbs, and adjectives, and be able to explain concepts and events in their own words. Students will expand their vocabulary and develop the ability to comprehend and write simple sentences based on short paragraphs. They will focus on half-letter words, including Chandrabindu and Bindu words, and revise essential grammar topics such as nouns, pronouns, gender, tense, verbs, adjectives, and singular/plural forms. Additionally, they will practice using various grammatical structures such as “accha,” “acche,” “hai,” “hain,” “tha,” “hoga,” “gayi,” “jaaungi,” and “jaa rahi hoon,” and count from 1 to 75.</p>',
+      requirements: 'Completion of Year 5 or foundational grammar knowledge',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 7,
+      title: 'Praveen - Year 7',
+      subtitle: 'READING, WRITING, AND ADVANCED GRAMMAR',
+      image: '../images/HBP-Year-7.jpg',
+      aboutCourse: '<p>In <strong>Praveen - Year 7</strong>, students will gain confidence in constructing moderately complex sentences, demonstrating proficiency with singular/plural, masculine/feminine, and past/present/future forms. They will expand their vocabulary and achieve greater comfort in both reading and writing. Students will be able to comprehend short stories effectively and tackle grammar questions in exams with improved accuracy. Additionally, they will practice more advanced comprehension skills, work with complex and dependent sentences, and be introduced to the concepts of Shudh and Ashudh shabd and Muhavare. The course will also cover synonyms and antonyms, as well as counting from 1 to 100.</p>',
+      requirements: 'Completion of Year 6 or intermediate grammar fluency',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    },
+    {
+      number: 8,
+      title: 'Praveen Adv - Year 8',
+      subtitle: 'REAL-WORLD COMMUNICATION AND ADVANCED EXPRESSION',
+      image: '../images/HBP-Year-8.jpg',
+      aboutCourse: '<p>In <strong>Praveen Adv - Year 8</strong>, in a Hindi-speaking environment, the ability to communicate effectively includes tasks such as taking a taxi, buying groceries, ordering food, and handling money. Students should be able to translate their ideas into appropriate actions, express their thoughts clearly in Hindi, and share these ideas with others. Additionally, students are expected to demonstrate their storytelling skills, write essays of ten or more sentences, and prepare four projects: a research-based presentation on a freedom fighter, a poet, a favorite place in Bharat, and a visit to their grandparents&#39; home. To enhance oral communication, students will engage in role-playing, story writing, and essay writing exercises.</p>',
+      requirements: 'Completion of Year 7 or advanced Hindi proficiency',
+      schedule: [{ day: 'Friday', time: '6:30 PM to 7:30 PM' }]
+    }
+  ];
+
+  function openModal(idx) {
+    var level = hbpLevels[idx];
+    document.getElementById('modal-title').textContent = level.title;
+    document.getElementById('modal-subtitle').textContent = level.subtitle;
+    document.getElementById('modal-image').src = level.image;
+    document.getElementById('modal-image').alt = level.title;
+    document.getElementById('modal-about').innerHTML = level.aboutCourse;
+    document.getElementById('modal-requirements').textContent = level.requirements;
+    var scheduleEl = document.getElementById('modal-schedule');
+    scheduleEl.innerHTML = level.schedule.map(function(s) {
+      return '<p class="text-stone-700 font-medium">' + s.day + ' ' + s.time + '</p>';
+    }).join('');
+    var modal = document.getElementById('level-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    var modal = document.getElementById('level-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnBackdrop(event) {
+    if (event.target === document.getElementById('level-modal')) closeModal();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 </script>
 </body>
 </html>
