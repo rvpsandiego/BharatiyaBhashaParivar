@@ -146,6 +146,7 @@
       '        <ul class="space-y-3">',
       '          <li><a href="' + rootPath + 'index.html" class="hover:text-[#FB923C] transition-colors text-sm">Home</a></li>',
       '          <li><a href="' + rootPath + 'about.html" class="hover:text-[#FB923C] transition-colors text-sm">About Us</a></li>',
+      '          <li><a href="' + rootPath + 'about.html#non-discrimination-policy" class="hover:text-[#FB923C] transition-colors text-sm">Non-Discrimination Policy</a></li>',
       '          <li><a href="' + rootPath + 'programs.html" class="hover:text-[#FB923C] transition-colors text-sm">Programs</a></li>',
       '          <li><a href="' + rootPath + 'testimonials.html" class="hover:text-[#FB923C] transition-colors text-sm">Testimonials</a></li>',
       '          <li><a href="' + rootPath + 'contact.html" class="hover:text-[#FB923C] transition-colors text-sm">Contact Us</a></li>',
